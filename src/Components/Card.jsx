@@ -1,29 +1,21 @@
-import React, { useState } from 'react'
-import { FaArrowRight } from "react-icons/fa";
+import React from 'react'
 
-
-const Card = () => {
-
-const [val, setVal] = useState(false)
-const clickk =() => setVal( ()=> !val )  
-
+const Card = (item) => {
+  const {name, age, image} = item
   return (
-    <div  className=' w-full h-screen flex justify-center items-center '>
-      
-  <div className='relative w-60 h-32 rounded-md flex overflow-hidden '>
-
-   <img className={`shrink-0  ${ val ? '-translate-x-[100%]' : '-translate-x-[0]'} -translate-x-[0%]  w-full h-full object-cover`} src="https://plus.unsplash.com/premium_photo-1739198859134-94d2e0135cc0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8" alt="" />
-    <img className={`shrink-0  ${ val ? '-translate-x-[100%]' : '-translate-x-[0]'} -translate-x-[0%]  w-full h-full object-cover`} src="https://images.unsplash.com/photo-1739361043380-f75ae825aee0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8" alt="" />
-
-    
-
-    <span onClick={clickk} className='absolute right-2 bottom-2 h-8 w-8 flex justify-center items-center bg-[#dadada8b] rounded-full '>
-          <FaArrowRight size="1em" />
-        </span>
-
-     </div>
-      
-
+    <div>
+      <div className='w-52 bg-white rounded-md overflow-hidden'>
+        <div className='w-full h-32 bg-sky-200'>
+          <img className='h-full w-full object-cover' src={image} alt='' />
+        </div>
+        <div className='w-full p-3'>
+          <h3 className='text-xl font-semibold'>name :{name}</h3>
+          <h5 className='text-xs'> age :{age}</h5>
+          <button onClick={()=> {alert("you can't send request 🙂")}} className='mt-4 px-3 py-1 text-xs text-white bg-blue-500 font-semibold rounded-md'>
+            Add Friend
+          </button>
+        </div>
+      </div>
     </div>
   )
 }
